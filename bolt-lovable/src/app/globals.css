@@ -1,0 +1,38 @@
+@config "../../tailwind.config.ts";
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply antialiased;
+  font-family: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  background: #f4f7fb;
+  color: #1f2a37;
+}
+
+.radial-mask {
+  position: relative;
+  isolation: isolate;
+}
+
+.radial-mask::before {
+  content: "";
+  position: absolute;
+  inset: -25%;
+  background: radial-gradient(circle at top, rgba(26, 117, 232, 0.45), transparent 65%);
+  filter: blur(40px);
+  opacity: 0.7;
+  z-index: -1;
+}
+
+.glass-card {
+  @apply bg-white/75 backdrop-blur-lg border border-white/40 rounded-3xl;
+  box-shadow: 0 20px 60px -30px rgba(10, 34, 57, 0.65);
+}
+
+.badge {
+  @apply inline-flex items-center gap-2 rounded-full border border-white/50 bg-white/80 px-3 py-1 text-xs font-medium text-bolt-600 shadow-sm;
+}
